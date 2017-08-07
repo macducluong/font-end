@@ -1,0 +1,51 @@
+<div class="container" ng-init="loadPosts()">
+    <div class="show-post">
+        <div class="newPost-sendPost">
+            <div class="welcome">
+                <h1>Wellome !!!</h1>
+                <p class="clock">{{ clock | date:'HH:mm:ss '}}</p>
+            </div>
+            <textarea ng-model="newPost.content" class="write-post" placeholder="How do you feel?"></textarea>
+            <button class="button-post" ng-click="sendPost()">POST</button>
+            </div>
+        </div>
+        <div ng-repeat="post in posts" class="post-comment-likes">
+            <div class="img-nameuser">
+                <div>
+                    <img ng-src="{{BACK_END_URL}}/uploads/{{post.user.profile}}" class="img-user">
+                </div>
+                <a href="" class="post-user-name">{{post.user.name}}</a>
+            </div>
+            <div class="post-content">
+                <h4>{{post.content}}</h4>
+            </div>
+            <div>
+                <span ng-click="like(post)" class="post-likes">
+                    <button type="button">likes</button>
+                </span>
+                {{post.likes}} likes
+            </div>
+            <hr>
+            <div ng-repeat="comment in post.comments">
+                <div class="content-comment">{{comment.content}}
+                    <span ng-click="like(comment)" class="comment-likes">
+                    <button type="button">likes</button>
+                        {{comment.likes}} likes
+                    </span>
+                </div>
+            </div>
+            <p class="head-write-comment">Comment</p> <input ng-model="post.newComment" type="text" class="write-comment">
+            <button ng-click="sendComment(post)" class="button-send-comment">Send</button>
+        </div>
+    </div>
+</div>
+<div class="show-list-friend">
+    <h3>List friends</h3>
+    Search
+    <input class='input-search' type="text" ng-model="keyword" ng-change="filter()"/>
+    <ul>
+        <li ng-repeat="friend in filteredFriends">
+            <a href="">{{friend}}</a>
+        </li>
+    </ul>
+</div>

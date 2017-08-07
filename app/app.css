@@ -1,25 +1,98 @@
-/* app css stylesheet */
-
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+.show-post{
+  width: 60%;
+}
+.write-post{
+  width: 90%;
+  margin-top: 10px;
+  margin-left: 33px;
+}
+.my-social{
+  height: 50px;
+  width: 100%;
+  background-color: whitesmoke;
 }
 
-.menu:before {
-  content: "[";
+.img-user{
+  width: 50px;
+  height: 50px;
+  margin-top: 10px;
+  margin-left: 33px;
 }
-
-.menu:after {
-  content: "]";
+.button-post{
+  margin-left: 33px;
+  margin-bottom: 5px;
 }
-
-.menu > li {
-  display: inline;
+.post-user-name{
+  margin-left: 33px;
 }
+.post-content{
+  margin-left: 33px;
+}
+.post-likes{
+  margin-left: 33px;
+}
+.show-list-friend{
+  border: 1px solid gainsboro;
+  margin-left: 63%;
+  width: 500px;
+}
+.write-comment{
+  margin-left: 33px;
+  width: 90%;
+}
+.button-send-comment{
+  margin-left: 33px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.head-write-comment{
+  margin-left: 33px;
+}
+.content-comment{
+  margin-left: 33px;
+}
+.input-search{
+  width: 80%;
+  margin-left: 10px;
+}
+.newPost-sendPost{
+  border: 1px solid black;
+  margin-left: 60px;
+  margin-top: 20px;
+}
+.post-comment-likes{
+  border: 1px solid gainsboro;
+  margin-top: 20px;
+  margin-left: 60px;
+  width: 56%;
+}
+.img-nameuser{
+  background-color: whitesmoke;
+}
+.welcome{
+  background-color: cadetblue;
+  height: 80px;
+}
+h1{
+  margin-top: 0px;
+  color: white;
+  margin-left: 33px;
+}
+h3{
+  text-align: center;
+}
+.container{
+ display: flex;
+  flex-direction:column ;
+}
+.clock{
+  margin-left: 80%;
+  color: red;
+  background-color: gainsboro;
+  width: 70px;
+  margin-top: 25px;
 
-.menu > li + li:before {
-  content: "|";
-  padding-right: 0.3em;
+}
+.comment-likes{
+  margin-left: 33px;
 }
