@@ -7,18 +7,16 @@ angular.module('myApp.home', ['ngRoute'])
             controller: 'HomeCtrl'
         });
     }])
-
     .controller('HomeCtrl', ['$scope','$interval', '$http', 'BACK_END_URL', function($scope,$interval, $http, BACK_END_URL) {
         $scope.BACK_END_URL = BACK_END_URL;
-
         $scope.posts=[];
         $scope.newPost={
             content:'',
             image:'',
             user:{
-                _id:'',
+                _id:'1',
                 profile:'',
-                name:"",
+                name:""
             },
             comment:{
                 _id:'',
@@ -32,15 +30,12 @@ angular.module('myApp.home', ['ngRoute'])
             },
             like:0,
             date_create:''
-
         };
-
         $scope.loadPosts = function(){
             $http.get(BACK_END_URL + '/posts')
                 .then(function(response){
                     $scope.posts = response.data.posts;
                 });
-
         };
         $scope.sendPost = function(){
             $http.post(BACK_END_URL + '/posts', {
@@ -51,26 +46,35 @@ angular.module('myApp.home', ['ngRoute'])
                     $scope.posts.splice(0, 0, response.data.post);
                     $scope.newPost.content = "";
                 });
-
         };
-        $scope.like=function (post,comment) {
+        $scope.like=function (post) {
           post.likes++;
-          comment.likes++;
         };
         $scope.sendComment=function (post) {
             var newComment={
-              _id:1,
-              content:post.newComment,
-              user:{
-                  _id:1,
-                  name:"macluong",
-                  profile:""
-              },
-              comment:[],
-              likes:0
-            };
-            post.comments.push(newComment);
-            post.newComment = "";
+                _id:'',
+                content:post.newComment,
+                user:{
+                    _id:'',
+                    name:'',
+                    profile:''
+                },
+                likes:0
+            }
+            $http.put(BACK_END_URL + '/posts/59898211b3fa0149a8bfd8a7/comments/', {
+                content:post.newComment
+
+            })
+                .then(function (response) {
+                   post.comments.push(response.data.post.newComment);
+                   post.newComment = "";
+            });
+        };
+        $scope.loadComments = function(post){
+            $http.get(BACK_END_URL + '/posts/59898211b3fa0149a8bfd8a7/comments')
+                .then(function(response){
+                    post.comments = response.data.post.newComment;
+                });
         };
         $scope.keyword='';
         $scope.friends=[
@@ -104,4 +108,5 @@ angular.module('myApp.home', ['ngRoute'])
         tick();
         $interval(tick, 1000);
     }]);
+
 

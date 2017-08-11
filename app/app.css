@@ -80,6 +80,10 @@ h1{
 }
 h3{
   text-align: center;
+  background-color: cadetblue;
+  margin-top: 0px;
+  height: 35px;
+  color: white;
 }
 .container{
  display: flex;
@@ -95,4 +99,24 @@ h3{
 }
 .comment-likes{
   margin-left: 33px;
+}
+a:link{
+  color: blue;
+  text-decoration: none;
+  margin-left: 30px;
+  font-size:30px;
+}
+
+a:visited{
+  color: cadetblue;
+  text-decoration: underline;
+}
+a:hover{
+  color: red;
+  text-decoration: none;
+}
+
+a:active{
+  color: white;
+  text-decoration: none;
 }

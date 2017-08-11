@@ -2,7 +2,7 @@
     <div class="show-post">
         <div class="newPost-sendPost">
             <div class="welcome">
-                <h1>Wellome !!!</h1>
+                <h1>Connect !!!</h1>
                 <p class="clock">{{ clock | date:'HH:mm:ss '}}</p>
             </div>
             <textarea ng-model="newPost.content" class="write-post" placeholder="How do you feel?"></textarea>
@@ -43,9 +43,10 @@
     <h3>List friends</h3>
     Search
     <input class='input-search' type="text" ng-model="keyword" ng-change="filter()"/>
+    <hr>
     <ul>
         <li ng-repeat="friend in filteredFriends">
-            <a href="">{{friend}}</a>
+            {{friend}}
         </li>
     </ul>
 </div>
